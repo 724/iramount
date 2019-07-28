@@ -1,0 +1,63 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.+'
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.0'
+    }
+}
+
+plugins {
+    id 'java-library'
+    id 'jacoco'
+}
+
+group 'io.github.the724'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    jcenter()
+    mavenCentral()
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled true
+        html.enabled true
+    }
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+ext
+        {
+            bintrayRepo = 'maven'
+            bintrayName = 'iramount'
+            orgName = 'farhad'
+
+            publishedGroupId = 'io.github.the724'
+            artifact = 'iramount'
+            libraryVersion = '1.0.0'
+
+            libraryName = 'iramount'
+            libraryDescription = 'digit grouping and conversion to formal spoken format for Farsi numbers'
+
+            siteUrl = 'https://github.com/724/iramount'
+            gitUrl = 'https://github.com/the724/iramount.git'
+
+            developerId = 'farhad'
+            developerName = 'Farhad Faghihi'
+            developerEmail = 'ifarhadfaghihi@gmail.com'
+
+            licenseName = 'GNU General Public License v3.0'
+            licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+            allLicenses = ["GPL-3.0"]
+        }
+
+apply from: rootProject.file('gradle/install.gradle')
+apply from: rootProject.file('gradle/bintray-java.gradle')
