@@ -108,7 +108,7 @@ open class IrAmount(private val number: Long) {
                 farsiRep += " ${thousandMultiples[groups.size - 1 - index]}"
 
             return@mapIndexed farsiRep
-        }.joinToString("")
+        }.joinToString("").trim()
     }
 
     private fun formatFragment(input: Int): String {
