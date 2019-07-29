@@ -1,6 +1,6 @@
 package io.github.the724
 
-open class Amount(private val number: Long) {
+open class IrAmount(private val number: Long) {
 
     companion object {
         private const val separator = ","

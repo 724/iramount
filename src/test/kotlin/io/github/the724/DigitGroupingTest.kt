@@ -8,7 +8,7 @@ class DigitGroupingTest {
     @Test
     fun one_digit_number() {
         // Arrange
-        val amount = Amount(1)
+        val amount = IrAmount(1)
 
         // Act
         val digitsGrouped = amount.digitGrouped()
@@ -20,7 +20,7 @@ class DigitGroupingTest {
     @Test
     fun two_digit_number() {
         // Arrange
-        val amount = Amount(34)
+        val amount = IrAmount(34)
 
         // Act
         val digitsGrouped = amount.digitGrouped()
@@ -32,7 +32,7 @@ class DigitGroupingTest {
     @Test
     fun three_digit_number() {
         // Arrange
-        val amount = Amount(508)
+        val amount = IrAmount(508)
 
         // Act
         val digitsGrouped = amount.digitGrouped()
@@ -44,7 +44,7 @@ class DigitGroupingTest {
     @Test
     fun three_digit_number_ending_in_zero() {
         // Arrange
-        val amount = Amount(410)
+        val amount = IrAmount(410)
 
         // Act
         val digitsGrouped = amount.digitGrouped()
@@ -56,7 +56,7 @@ class DigitGroupingTest {
     @Test
     fun four_digit_number() {
         // Arrange
-        val amount = Amount(4065)
+        val amount = IrAmount(4065)
 
         // Act
         val digitsGrouped = amount.digitGrouped()
@@ -68,7 +68,7 @@ class DigitGroupingTest {
     @Test
     fun four_digit_number_ending_in_zero() {
         // Arrange
-        val amount = Amount(1000)
+        val amount = IrAmount(1000)
 
         // Act
         val digitsGrouped = amount.digitGrouped()
@@ -80,7 +80,7 @@ class DigitGroupingTest {
     @Test
     fun five_digit_number() {
         // Arrange
-        val amount = Amount(54032)
+        val amount = IrAmount(54032)
 
         // Act
         val digitsGrouped = amount.digitGrouped()
@@ -92,7 +92,7 @@ class DigitGroupingTest {
     @Test
     fun five_digit_number_ending_in_zero() {
         // Arrange
-        val amount = Amount(46200)
+        val amount = IrAmount(46200)
 
         // Act
         val digitsGrouped = amount.digitGrouped()
@@ -104,7 +104,7 @@ class DigitGroupingTest {
     @Test
     fun six_digit_number() {
         // Arrange
-        val amount = Amount(123456)
+        val amount = IrAmount(123456)
 
         // Act
         val digitsGrouped = amount.digitGrouped()
@@ -116,7 +116,7 @@ class DigitGroupingTest {
     @Test
     fun six_digit_number_ending_in_zero() {
         // Arrange
-        val amount = Amount(100000)
+        val amount = IrAmount(100000)
 
         // Act
         val digitsGrouped = amount.digitGrouped()
@@ -128,7 +128,7 @@ class DigitGroupingTest {
     @Test
     fun seven_digit_number() {
         // Arrange
-        val amount = Amount(1005000)
+        val amount = IrAmount(1005000)
 
         // Act
         val digitsGrouped = amount.digitGrouped()
@@ -140,7 +140,7 @@ class DigitGroupingTest {
     @Test
     fun eight_digit_number() {
         // Arrange
-        val amount = Amount(10050100)
+        val amount = IrAmount(10050100)
 
         // Act
         val digitsGrouped = amount.digitGrouped()
@@ -152,7 +152,7 @@ class DigitGroupingTest {
     @Test
     fun nine_digit_number() {
         // Arrange
-        val amount = Amount(410050100)
+        val amount = IrAmount(410050100)
 
         // Act
         val digitsGrouped = amount.digitGrouped()
@@ -164,7 +164,7 @@ class DigitGroupingTest {
     @Test
     fun ten_digit_number() {
         // Arrange
-        val amount = Amount(4108050100)
+        val amount = IrAmount(4108050100)
 
         // Act
         val digitsGrouped = amount.digitGrouped()
