@@ -170,6 +170,6 @@ class FarsiSpokenFormatTest {
         val farsi = amount.farsiSpokenFormat()
 
         // Assert
-        Assert.assertEquals( "چهار میلیارد و صد و هشت میلیون و پنجاه هزار و صد",farsi)
+        Assert.assertEquals("چهار میلیارد و صد و هشت میلیون و پنجاه هزار و صد", farsi)
     }
 }
