@@ -5,6 +5,8 @@ open class IrAmount(private val number: Long) {
     companion object {
         private const val separator = ","
         private const val and = " و "
+        private const val rialTag = " ریال"
+        private const val tomanTag = " تومان"
 
         private val oneToTwenty = listOf(
                 "",
@@ -58,7 +60,9 @@ open class IrAmount(private val number: Long) {
                 "هزار",
                 "میلیون",
                 "میلیارد",
-                "بیلیون"
+                "بیلیون",
+                "بیلیارد",
+                "تریلیون"
         )
     }
 
@@ -94,7 +98,7 @@ open class IrAmount(private val number: Long) {
         }
     }
 
-    fun farsiSpokenFormat(): String {
+    fun farsiFormatRial(): String {
         val groups = digitGrouped().split(",")
         return groups.map { it.toInt() }.mapIndexed { index, number ->
             var farsiRep = ""
@@ -108,7 +112,38 @@ open class IrAmount(private val number: Long) {
                 farsiRep += " ${thousandMultiples[groups.size - 1 - index]}"
 
             return@mapIndexed farsiRep
+        }.joinToString("").trim().plus(rialTag)
+    }
+
+    fun farsiFormatToman(): String {
+        val amountInToman: Long = number.div(10)
+        val remOfToman: Int = number.rem(10).toInt()
+        val groups = digitGrouped(amountInToman.toString()).split(",")
+        val spokenFormat = groups.map { it.toInt() }.mapIndexed { index, number ->
+            var farsiRep = ""
+
+            if (number != 0 && index != 0)
+                farsiRep += and
+
+            farsiRep += formatFragment(number)
+
+            if (number != 0)
+                farsiRep += " ${thousandMultiples[groups.size - 1 - index]}"
+
+            return@mapIndexed farsiRep
         }.joinToString("").trim()
+
+        return if (remOfToman != 0) {
+            if (amountInToman == 0L) {
+                spokenFormat.plus(oneToTwenty[remOfToman]).plus(rialTag)
+            } else {
+                spokenFormat.plus(tomanTag)
+                        .plus(and)
+                        .plus(oneToTwenty[remOfToman])
+                        .plus(rialTag)
+            }
+        } else
+            spokenFormat.plus(tomanTag)
     }
 
     private fun formatFragment(input: Int): String {

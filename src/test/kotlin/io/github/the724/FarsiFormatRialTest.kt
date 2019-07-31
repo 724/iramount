@@ -2,8 +2,9 @@ package io.github.the724
 
 import org.junit.Assert
 import org.junit.Test
+import java.lang.IllegalArgumentException
 
-class FarsiSpokenFormatTest {
+class FarsiFormatRialTest {
 
     @Test
     fun one_digit_number() {
@@ -11,10 +12,10 @@ class FarsiSpokenFormatTest {
         val amount = IrAmount(1)
 
         // Act
-        val farsi = amount.farsiSpokenFormat()
+        val farsi = amount.farsiFormatRial()
 
         // Assert
-        Assert.assertEquals("یک", farsi)
+        Assert.assertEquals("یک ریال", farsi)
     }
 
     @Test
@@ -23,10 +24,10 @@ class FarsiSpokenFormatTest {
         val amount = IrAmount(34)
 
         // Act
-        val farsi = amount.farsiSpokenFormat()
+        val farsi = amount.farsiFormatRial()
 
         // Assert
-        Assert.assertEquals("سی و چهار", farsi)
+        Assert.assertEquals("سی و چهار ریال", farsi)
     }
 
     @Test
@@ -35,10 +36,10 @@ class FarsiSpokenFormatTest {
         val amount = IrAmount(508)
 
         // Act
-        val farsi = amount.farsiSpokenFormat()
+        val farsi = amount.farsiFormatRial()
 
         // Assert
-        Assert.assertEquals("پانصد و هشت", farsi)
+        Assert.assertEquals("پانصد و هشت ریال", farsi)
     }
 
     @Test
@@ -47,10 +48,10 @@ class FarsiSpokenFormatTest {
         val amount = IrAmount(410)
 
         // Act
-        val farsi = amount.farsiSpokenFormat()
+        val farsi = amount.farsiFormatRial()
 
         // Assert
-        Assert.assertEquals("چهارصد و ده", farsi)
+        Assert.assertEquals("چهارصد و ده ریال", farsi)
     }
 
     @Test
@@ -59,10 +60,10 @@ class FarsiSpokenFormatTest {
         val amount = IrAmount(4065)
 
         // Act
-        val farsi = amount.farsiSpokenFormat()
+        val farsi = amount.farsiFormatRial()
 
         // Assert
-        Assert.assertEquals("چهار هزار و شصت و پنج", farsi)
+        Assert.assertEquals("چهار هزار و شصت و پنج ریال", farsi)
     }
 
     @Test
@@ -71,10 +72,10 @@ class FarsiSpokenFormatTest {
         val amount = IrAmount(1000)
 
         // Act
-        val farsi = amount.farsiSpokenFormat()
+        val farsi = amount.farsiFormatRial()
 
         // Assert
-        Assert.assertEquals("یک هزار", farsi)
+        Assert.assertEquals("یک هزار ریال", farsi)
     }
 
     @Test
@@ -83,10 +84,10 @@ class FarsiSpokenFormatTest {
         val amount = IrAmount(54032)
 
         // Act
-        val farsi = amount.farsiSpokenFormat()
+        val farsi = amount.farsiFormatRial()
 
         // Assert
-        Assert.assertEquals("پنجاه و چهار هزار و سی و دو", farsi)
+        Assert.assertEquals("پنجاه و چهار هزار و سی و دو ریال", farsi)
     }
 
     @Test
@@ -95,10 +96,10 @@ class FarsiSpokenFormatTest {
         val amount = IrAmount(46200)
 
         // Act
-        val farsi = amount.farsiSpokenFormat()
+        val farsi = amount.farsiFormatRial()
 
         // Assert
-        Assert.assertEquals("چهل و شش هزار و دویست", farsi)
+        Assert.assertEquals("چهل و شش هزار و دویست ریال", farsi)
     }
 
     @Test
@@ -107,10 +108,10 @@ class FarsiSpokenFormatTest {
         val amount = IrAmount(123456)
 
         // Act
-        val farsi = amount.farsiSpokenFormat()
+        val farsi = amount.farsiFormatRial()
 
         // Assert
-        Assert.assertEquals("صد و بیست و سه هزار و چهارصد و پنجاه و شش", farsi)
+        Assert.assertEquals("صد و بیست و سه هزار و چهارصد و پنجاه و شش ریال", farsi)
     }
 
     @Test
@@ -119,10 +120,10 @@ class FarsiSpokenFormatTest {
         val amount = IrAmount(100000)
 
         // Act
-        val farsi = amount.farsiSpokenFormat()
+        val farsi = amount.farsiFormatRial()
 
         // Assert
-        Assert.assertEquals("صد هزار", farsi)
+        Assert.assertEquals("صد هزار ریال", farsi)
     }
 
     @Test
@@ -131,10 +132,10 @@ class FarsiSpokenFormatTest {
         val amount = IrAmount(1005000)
 
         // Act
-        val farsi = amount.farsiSpokenFormat()
+        val farsi = amount.farsiFormatRial()
 
         // Assert
-        Assert.assertEquals("یک میلیون و پنج هزار", farsi)
+        Assert.assertEquals("یک میلیون و پنج هزار ریال", farsi)
     }
 
     @Test
@@ -143,10 +144,10 @@ class FarsiSpokenFormatTest {
         val amount = IrAmount(10050100)
 
         // Act
-        val farsi = amount.farsiSpokenFormat()
+        val farsi = amount.farsiFormatRial()
 
         // Assert
-        Assert.assertEquals("ده میلیون و پنجاه هزار و صد", farsi)
+        Assert.assertEquals("ده میلیون و پنجاه هزار و صد ریال", farsi)
     }
 
     @Test
@@ -155,10 +156,10 @@ class FarsiSpokenFormatTest {
         val amount = IrAmount(410050100)
 
         // Act
-        val farsi = amount.farsiSpokenFormat()
+        val farsi = amount.farsiFormatRial()
 
         // Assert
-        Assert.assertEquals("چهارصد و ده میلیون و پنجاه هزار و صد", farsi)
+        Assert.assertEquals("چهارصد و ده میلیون و پنجاه هزار و صد ریال", farsi)
     }
 
     @Test
@@ -167,9 +168,9 @@ class FarsiSpokenFormatTest {
         val amount = IrAmount(4108050100)
 
         // Act
-        val farsi = amount.farsiSpokenFormat()
+        val farsi = amount.farsiFormatRial()
 
         // Assert
-        Assert.assertEquals("چهار میلیارد و صد و هشت میلیون و پنجاه هزار و صد", farsi)
+        Assert.assertEquals("چهار میلیارد و صد و هشت میلیون و پنجاه هزار و صد ریال", farsi)
     }
 }
