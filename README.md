@@ -9,13 +9,25 @@ implementation 'io.github.the724:iramount:[latest-version]'
 ```
 ---
 
-This library enables you to create formal Farsi spoken format for numbers that represent an amount. In order to use :
+This library enables you to create formal Farsi spoken format for numbers that represent an amount in Rials (IRR).
+
+To group digits by three, use
 
 ```kotlin
-val amount = IrAmount(10000) // it accepts Long number
-val spokenFormat = amount.farsiSpokenFormat() // "ده هزار"
-val digitsGrouped = amount.digitGrouped() // 10,000
+val amount = IrAmount(5511255) // we assume the number is in Rials!
+val withDigitGrouping = amount.digitGrouped() // returns 5,511,255
+```
 
+To display Farsi spoken format in Rials (IRR), use
+```kotlin
+val amount = IrAmount(5511255) // we assume the number is in Rials!
+val rialFormat = amount.farsiFormatRial() // returns پنج میلیون و پانصد و یازده هزار و دویست و پتجاه و پنج ریال
+```
+
+To display Farsi spoken format in Tomans, use
+```kotlin
+val amount = IrAmount(5511255) // we assume the number is in Rials!
+val tomanFormat = amount.farsiFormatToman() // returns پانصد و پنجاه و یک هزار و صد و بیست و پنج تومان و پنج ریال
 ```
 
 ### License
